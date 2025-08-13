@@ -50,20 +50,20 @@ export default function WaitingToStartScreen() {
                 <GameIdCopyButton className="text-gray-500 hover:bg-gray-100 active:bg-gray-200" />
                 <span className="py-2 pl-1">to join</span>
               </div>
-              <div>
-                {!prefs.hideGameId ? (
-                  <QRCode
-                    style={{ height: "auto", maxWidth: "100%" }}
-                    value={window.location.href + "?gameId=" + game.id}
-                  />
-                ) : (
-                  <></>
-                )}
-              </div>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
+      <div>
+        {!prefs.hideGameId ? (
+          <QRCode
+            style={{ height: "auto", maxWidth: "100%" }}
+            value={window.location.href + "?gameId=" + game.id}
+          />
+        ) : (
+          <></>
+        )}
+      </div>
 
       {isHost ? (
         <Button
