@@ -84,7 +84,7 @@ export default function WaitingToStartScreen() {
                     ) : (
                       <div>
                         <span className="py-2 pr-1">
-                          Click to copy Game ID{" "}
+                          Click to copy Game URL{" "}
                         </span>
                         <GameIdCopyButton className="text-gray-500 hover:bg-gray-100 active:bg-gray-200" />
                         <span className="py-2 pl-1"></span>

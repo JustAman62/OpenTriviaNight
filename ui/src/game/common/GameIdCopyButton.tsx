@@ -10,7 +10,7 @@ export default function GameIdCopyButton({ className }: { className?: string | u
   }
 
   const copyGameIdToClipboard = () => {
-    navigator.clipboard.writeText(game.id).catch(() => addError("Failed to copy Game ID to clipboard"));
+    navigator.clipboard.writeText(window.location.href + "?gameId=" + game.id).then(() => addError("Copied game link to clipboard")).catch(() => addError("Failed to copy game link to clipboard"));
   };
 
   return (
