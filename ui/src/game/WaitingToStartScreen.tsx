@@ -44,27 +44,26 @@ export default function WaitingToStartScreen() {
           ))}
 
           <TableRow>
-            <TableCell>
+            <TableCell className="items-middle text-center">
               <div className="inline-flex items-middle">
                 <span className="py-2 pr-1">Use Game ID </span>
                 <GameIdCopyButton className="text-gray-500 hover:bg-gray-100 active:bg-gray-200" />
-                <span className="py-2 pl-1">to join</span>
+                <span className="py-2 pl-1">to join or scan QR code</span>
               </div>
+                <div>
+                  {!prefs.hideGameId ? (<TableCell>
+                    <QRCode
+                      style={{ height: "auto", maxWidth: "100%" }}
+                      value={window.location.href + "?gameId=" + game.id}
+                    /></TableCell>
+                  ) : (
+                    <></>
+                  )}
+                </div>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
-      <div>
-        {!prefs.hideGameId ? (
-          <QRCode
-            style={{ height: "auto", maxWidth: "100%" }}
-            value={window.location.href + "?gameId=" + game.id}
-          />
-        ) : (
-          <></>
-        )}
-      </div>
-
       {isHost ? (
         <Button
           className="mt-4"
