@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import LabeledTextInput from "../../LabeledTextInput";
 import { GameContext } from "../../GameContext";
 import { Button, HRText } from "flowbite-react";
@@ -13,8 +13,21 @@ export default function CreateJoinGame() {
   // False to begin with show that we only show an error after first interaction
   const [gameIdErrorMessage, setGameIdErrorMessage] = useState("");
   const apiClient = useApiClient();
+  const initalLoadRef = useRef(false);
+
+
 
   useEffect(() => {
+    // set parameter if it exists only on first page load
+    if (initalLoadRef.current == false) {
+      const gameIdParam = new URLSearchParams(document.location.search).get("gameId")
+      if (gameIdParam != null){
+        setGameId(gameIdParam);
+      }
+      initalLoadRef.current = true;
+    }
+    
+
     // Clear out the error message if the Game ID is cleared
     if (!gameId) {
       setGameIdErrorMessage("");
@@ -67,6 +80,7 @@ export default function CreateJoinGame() {
             onChange={(e) => setGameId(e.target.value)}
             errorMessage={gameIdErrorMessage}
           />
+          
           <LabeledTextInput
             label="Your Name"
             name="username"
