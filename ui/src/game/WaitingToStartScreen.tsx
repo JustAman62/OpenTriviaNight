@@ -66,7 +66,12 @@ export default function WaitingToStartScreen() {
       </Table>
 
       {isHost ? (
-        <Button className="mt-4" color="green" size="lg" onClick={apiClient.startGame}>
+        <Button
+          className="mt-4"
+          color="success"
+          size="lg"
+          onClick={apiClient.startGame}
+        >
           Start Game
         </Button>
       ) : (
