@@ -16,7 +16,7 @@ export default function ManagePreferences() {
     <form className="flex flex-col">
       <div className="flex items-center">
         <Checkbox id="hideGameId" name="hideGameId" checked={prefs.hideGameId} onChange={handleInputChange} />
-        <Label className="ml-4 grow" htmlFor="hideGameId">Hide Game ID?</Label>
+        <Label className="ml-4 grow" htmlFor="hideGameId">Hide Game ID and QR code?</Label>
       </div>
     </form>
   );

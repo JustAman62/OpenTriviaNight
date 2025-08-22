@@ -53,14 +53,14 @@ export default function CreateRound({ round, roundNumber, setRequest }: Props) {
     <div className="flex flex-col">
       <HRText text={`Round ${roundNumber + 1}`} />
       <div className="flex gap-2 self-center">
-        <Button size="sm" onClick={() => addCategory(roundNumber)}>
+        <Button className="p-5 leading-4" size="sm" onClick={() => addCategory(roundNumber)}>
           <span className="mr-2 text-lg">
             <HiPlus />
           </span>
           <span>Add Category</span>
         </Button>
         <Button
-          className="bg-linear-to-br from-pink-500 to-orange-400 text-white hover:bg-linear-to-bl focus:ring-pink-200 dark:focus:ring-pink-800"
+          className="p-5 leading-4 bg-linear-to-br from-pink-500 to-orange-400 text-white hover:bg-linear-to-bl focus:ring-pink-200 dark:focus:ring-pink-800"
           size="sm"
           onClick={() => setGenCategoryOpen(true)}
         >
@@ -69,7 +69,7 @@ export default function CreateRound({ round, roundNumber, setRequest }: Props) {
           </span>
           <span>Generate Category</span>
         </Button>
-        <Button size="sm" color="red" outline onClick={removeRound}>
+        <Button className="p-5 leading-4" size="sm" color="red" outline onClick={removeRound}>
           <span className="mr-2 text-lg">
             <HiTrash />
           </span>
